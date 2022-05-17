@@ -7,6 +7,13 @@
     <form action="{{ route('monsters.store')}}" method="post">
         @csrf
         <div class="my-2">
+            <label for="index" class="form-label">Index</label>
+            <input armor_class="text" name="index" id="index" class="form-control" value="{{ old('index') }}">
+        </div>
+        @error('index')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <div class="my-2">
             <label for="name" class="form-label">Name</label>
             <input armor_class="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
         </div>
