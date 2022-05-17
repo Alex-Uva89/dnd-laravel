@@ -71,8 +71,8 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <div class="my-2">
-            <label for="strenght" class="form-label">Strenght</label>
-            <input type="number" name="strenght" id="strenght" class="form-control" value="{{ old('strenght', $monster->strenght) }}">
+            <label for="strength" class="form-label">Strength</label>
+            <input type="number" name="strength" id="strength" class="form-control" value="{{ old('strength', $monster->strength) }}">
         </div>
         @error('strenght')
         <div class="alert alert-danger">{{ $message }}</div>
