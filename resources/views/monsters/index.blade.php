@@ -7,9 +7,9 @@
     <div class="container">
         <h1>Monsters</h1>
         <a href="{{ route('monsters.create') }}" class="btn btn-primary">Create Monster</a>
-        <div class="row">
+        <div class="row mb-3 gap-3">
             @foreach ($monsters as $monster)
-                <div class="col-md-3 g-3">
+                <div class="col-md-3 mb-3">
                     <div class="card">
                         <a class="btn btn-primary" href="{{ route('monsters.show', $monster->id) }}">Open Card</a>
                         <div>Name: {{ $monster->name }} </div>
@@ -32,6 +32,7 @@
                 </div>
             @endforeach
         </div>
+        {{ $monsters->links() }}
     </div>
 
 @endsection
