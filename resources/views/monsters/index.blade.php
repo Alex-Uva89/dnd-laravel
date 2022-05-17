@@ -11,23 +11,22 @@
             @foreach ($monsters as $monster)
                 <div class="col-md-3 g-3">
                     <div class="card">
-                        <div>{{ $monster->index }} </div>
-                        <div>{{ $monster->name }} </div>
-                        <div>{{ $monster->type }} </div>
-                        <div>{{ $monster->alignment }} </div>
-                        <div>{{ $monster->armor_class }} </div>
-                        <div>{{ $monster->hit_points }} </div>
-                        <div>{{ $monster->size }} </div>
-                        <div>{{ $monster->strength }} </div>
-                        <div>{{ $monster->dexterity }} </div>
-                        <div>{{ $monster->constitution }} </div>
-                        <div>{{ $monster->intelligence }} </div>
-                        <div>{{ $monster->wisdom }} </div>
-                        <div>{{ $monster->charisma }} </div>
-                        <div>{{ $monster->xp }} </div>
-                        <div>{{ $monster->challenge_rating }} </div>
-                        <div>{{ $monster->hit_dice }} </div>
-                        <div>{{ $monster->languages }} </div>
+                        <div>Name: {{ $monster->name }} </div>
+                        <div>Type: {{ $monster->type }} </div>
+                        <div>Alignment: {{ $monster->alignment }} </div>
+                        <div>Armor Class: {{ $monster->armor_class }} </div>
+                        <div>Hit Points{{ $monster->hit_points }} </div>
+                        <div>Size: {{ $monster->size }} </div>
+                        <div>Strenght: {{ $monster->strength }} </div>
+                        <div>Dexerity: {{ $monster->dexterity }} </div>
+                        <div>Constitution: {{ $monster->constitution }} </div>
+                        <div>Intelligence: {{ $monster->intelligence }} </div>
+                        <div>Wisdom: {{ $monster->wisdom }} </div>
+                        <div>Charisma: {{ $monster->charisma }} </div>
+                        <div>Xp: {{ $monster->xp }} </div>
+                        <div>Challenge rating: {{ $monster->challenge_rating }} </div>
+                        <div>Hit dice: {{ $monster->hit_dice }} </div>
+                        <div>Languages: {{ $monster->languages }} </div>
                     </div>
                 </div>
             @endforeach
