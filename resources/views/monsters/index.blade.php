@@ -11,6 +11,7 @@
             @foreach ($monsters as $monster)
                 <div class="col-md-3 g-3">
                     <div class="card">
+                        <a class="btn btn-primary" href="{{ route('monsters.show', $monster->id) }}">Open Card</a>
                         <div>Name: {{ $monster->name }} </div>
                         <div>Type: {{ $monster->type }} </div>
                         <div>Alignment: {{ $monster->alignment }} </div>
