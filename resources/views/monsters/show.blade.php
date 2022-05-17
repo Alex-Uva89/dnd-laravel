@@ -1,6 +1,8 @@
 @extends('template.base')
 @section('title')
 
+@section('content')
+
 <h3>{{$monster->name}}</h3>
 <div>{{ $monster->index }} </div>
 <div>{{ $monster->type }} </div>
@@ -18,3 +20,5 @@
 <div>{{ $monster->challenge_rating }} </div>
 <div>{{ $monster->hit_dice }} </div>
 <div>{{ $monster->languages }} </div>
+
+@endsection
