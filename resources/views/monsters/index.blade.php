@@ -32,10 +32,7 @@
                 </div>
             @endforeach
         </div>
-<<<<<<< HEAD
-=======
         {{ $monsters->links() }}
->>>>>>> origin/developer
     </div>
 
 @endsection
