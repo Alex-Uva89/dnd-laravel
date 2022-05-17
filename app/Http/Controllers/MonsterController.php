@@ -7,6 +7,26 @@ use Illuminate\Http\Request;
 
 class MonsterController extends Controller
 {
+    private $validationRules = [
+        'index' => 'required|min:5|max:100',
+        'name' => 'required|unique:monsters|max:100',
+        'type' => 'required|max:100',
+        'alignment' => 'required|max:50',
+        'size' => 'max:150',
+        'hit_dice' => 'numeric|min:50|max:5000',
+        'languages' => 'numeric|min:0|max:100',
+        'armor_class' => 'numeric|min:0|max:1',
+        'hit_points' => 'numeric',
+        'strenght' => 'date',
+        'dexterity' => 'numeric',
+        'constitution' => 'numeric',
+        'intelligence' => 'numeric',
+        'wisdom' => 'numeric',
+        'charisma' => 'numeric',
+        'xp' => 'numeric',
+        'challenge_rating' => 'numeric',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +34,8 @@ class MonsterController extends Controller
      */
     public function index()
     {
-        $monster = Monster::paginate(8);
+        $monsters = Monster::paginate(8);
+
         return view('monsters.index', compact('monsters'));
     }
 
@@ -25,7 +46,7 @@ class MonsterController extends Controller
      */
     public function create()
     {
-        //
+        return view('monsters.create');
     }
 
     /**
@@ -58,7 +79,7 @@ class MonsterController extends Controller
      */
     public function edit(Monster $monster)
     {
-        return view('monsters.edit', compact('monsters'));
+        return view('monsters.edit', compact('monster'));
     }
 
     /**
@@ -68,7 +89,7 @@ class MonsterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Monster $monster)
     {
         //
     }
