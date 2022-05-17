@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Monster;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 class MonsterController extends Controller
 {
@@ -11,20 +13,20 @@ class MonsterController extends Controller
         'index' => 'required|min:5|max:100',
         'name' => 'required|unique:monsters|max:100',
         'type' => 'required|max:100',
-        'alignment' => 'required|max:50',
-        'size' => 'max:150',
-        'hit_dice' => 'numeric|min:50|max:5000',
-        'languages' => 'numeric|min:0|max:100',
-        'armor_class' => 'numeric|min:0|max:1',
-        'hit_points' => 'numeric',
-        'strenght' => 'date',
-        'dexterity' => 'numeric',
-        'constitution' => 'numeric',
-        'intelligence' => 'numeric',
-        'wisdom' => 'numeric',
-        'charisma' => 'numeric',
+        'alignment' => 'required|max:100',
+        'size' => 'max:50',
+        'hit_dice' => 'min:0|max:10',
+        'languages' => 'nullable',
+        'armor_class' => 'numeric|min:1|max:100',
+        'hit_points' => 'numeric|min:1|max:1000',
+        'strenght' => 'numeric|min:1|max:100',
+        'dexterity' => 'numeric|min:1|max:100',
+        'constitution' => 'numeric|min:1|max:100',
+        'intelligence' => 'numeric|min:1|max:100',
+        'wisdom' => 'numeric|min:1|max:100',
+        'charisma' => 'numeric|min:1|max:100',
         'xp' => 'numeric',
-        'challenge_rating' => 'numeric',
+        'challenge_rating' => 'numeric|min:1|max:100',
     ];
 
     /**
@@ -57,7 +59,13 @@ class MonsterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $formData = $request->all();
+
+        $newMonster = Monster::create($formData);
+
+       return redirect()->route('monsters.show', $newMonster->id)->with('status', 'Completed with success!');
+
     }
 
     /**
@@ -91,7 +99,20 @@ class MonsterController extends Controller
      */
     public function update(Request $request, Monster $monster)
     {
-        //
+        $this->validationRules['name'] = [
+            'required',
+            Rule::unique('monsters')->ignore($monster),
+            'min:5',
+            'max:100'
+        ];
+
+        $request->validate($this->validationRules);
+
+        $formData = $request->all();
+
+        $monster->update($formData);
+
+        return redirect()->route('monsters.show', $monster->id);
     }
 
     /**
