@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Monster;
 use Illuminate\Http\Request;
 
 class MonsterController extends Controller
@@ -13,7 +14,8 @@ class MonsterController extends Controller
      */
     public function index()
     {
-        //
+        $comics = Monster::paginate(8);
+        return view('monsters.index', compact('monsters'));
     }
 
     /**
@@ -43,9 +45,9 @@ class MonsterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Monster $monster)
     {
-        //
+        return view('monsters.show', compact('monsters'));
     }
 
     /**
@@ -54,9 +56,9 @@ class MonsterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Monster $monster)
     {
-        //
+        return view('monsters.edit', compact('monsters'));
     }
 
     /**
@@ -77,8 +79,9 @@ class MonsterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Monster $monster)
     {
-        //
+        $monster->delete();
+        return redirect()->route('monsters.index');
     }
 }
