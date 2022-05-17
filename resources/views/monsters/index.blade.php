@@ -28,6 +28,14 @@
                         <div>Challenge rating: {{ $monster->challenge_rating }} </div>
                         <div>Hit dice: {{ $monster->hit_dice }} </div>
                         <div>Languages: {{ $monster->languages }} </div>
+                        {{-- edit --}}
+                        <a href="{{ route('monsters.edit', $monster->id) }}" class="btn btn-primary">Edit</a>
+                        {{-- delete --}}
+                        <form action="{{ route('monsters.destroy', $monster->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
             @endforeach

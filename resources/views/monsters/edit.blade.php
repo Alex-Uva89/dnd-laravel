@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('monsters.update')}}" method="post">
+    <form action="{{ route('monsters.update', $monster->id)}}" method="post">
         @csrf
         @method('PUT')
         <div class="my-2">
