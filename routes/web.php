@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::view('/', 'home')->name('home');
 
 Route::resource('monsters', 'MonsterController');
