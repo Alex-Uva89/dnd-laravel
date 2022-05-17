@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::resource('show', 'MonsterController');
+Route::resource('monsters', 'MonsterController');
