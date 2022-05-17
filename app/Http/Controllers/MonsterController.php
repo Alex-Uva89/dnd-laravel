@@ -4,9 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Monster;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 class MonsterController extends Controller
 {
+    private $validationRules = [
+        'index' => 'required|min:5|max:100',
+        'name' => 'required|unique:monsters|max:100',
+        'type' => 'required|max:100',
+        'alignment' => 'required|max:100',
+        'size' => 'max:50',
+        'hit_dice' => 'min:0|max:10',
+        'languages' => 'nullable',
+        'armor_class' => 'numeric|min:1|max:100',
+        'hit_points' => 'numeric|min:1|max:1000',
+        'strenght' => 'numeric|min:1|max:100',
+        'dexterity' => 'numeric|min:1|max:100',
+        'constitution' => 'numeric|min:1|max:100',
+        'intelligence' => 'numeric|min:1|max:100',
+        'wisdom' => 'numeric|min:1|max:100',
+        'charisma' => 'numeric|min:1|max:100',
+        'xp' => 'numeric',
+        'challenge_rating' => 'numeric|min:1|max:100',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +36,8 @@ class MonsterController extends Controller
      */
     public function index()
     {
-        $monster = Monster::paginate(8);
+        $monsters = Monster::paginate(8);
+
         return view('monsters.index', compact('monsters'));
     }
 
@@ -25,7 +48,7 @@ class MonsterController extends Controller
      */
     public function create()
     {
-        //
+        return view('monsters.create');
     }
 
     /**
@@ -36,7 +59,13 @@ class MonsterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $formData = $request->all();
+
+        $newMonster = Monster::create($formData);
+
+       return redirect()->route('monsters.show', $newMonster->id)->with('status', 'Completed with success!');
+
     }
 
     /**
@@ -58,7 +87,7 @@ class MonsterController extends Controller
      */
     public function edit(Monster $monster)
     {
-        return view('monsters.edit', compact('monsters'));
+        return view('monsters.edit', compact('monster'));
     }
 
     /**
@@ -68,9 +97,22 @@ class MonsterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Monster $monster)
     {
-        //
+        $this->validationRules['name'] = [
+            'required',
+            Rule::unique('monsters')->ignore($monster),
+            'min:5',
+            'max:100'
+        ];
+
+        $request->validate($this->validationRules);
+
+        $formData = $request->all();
+
+        $monster->update($formData);
+
+        return redirect()->route('monsters.show', $monster->id);
     }
 
     /**
