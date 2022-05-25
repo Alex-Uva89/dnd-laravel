@@ -4,21 +4,21 @@
 @section('content')
 
 <h3>{{$monster->name}}</h3>
-<div>index:{{ $monster->index }} </div>
-<div>type:{{ $monster->type }} </div>
-<div>alignment:{{ $monster->alignment }} </div>
-<div>armor_class:{{ $monster->armor_class }} </div>
-<div>hit_points:{{ $monster->hit_points }} </div>
-<div>size:{{ $monster->size }} </div>
-<div>strength:{{ $monster->strength }} </div>
-<div>dexterity:{{ $monster->dexterity }} </div>
-<div>constitution:{{ $monster->constitution }} </div>
-<div>intelligence:{{ $monster->intelligence }} </div>
-<div>wisdom:{{ $monster->wisdom }} </div>
-<div>charisma:{{ $monster->charisma }} </div>
-<div>xp:{{ $monster->xp }} </div>
-<div>challenge_rating:{{ $monster->challenge_rating }} </div>
-<div>hit_dice:{{ $monster->hit_dice }} </div>
-<div>languages:{{ $monster->languages }} </div>
+<div>Index: {{ $monster->index }} </div>
+<div>Type: {{ $monster->type }} </div>
+<div>Alignment: {{ $monster->alignment }} </div>
+<div>Armor_class: {{ $monster->armor_class }} </div>
+<div>Hit_points: {{ $monster->hit_points }} </div>
+<div>Size: {{ $monster->size }} </div>
+<div>Strength: {{ $monster->strength }} </div>
+<div>Dexterity: {{ $monster->dexterity }} </div>
+<div>Constitution: {{ $monster->constitution }} </div>
+<div>Intelligence: {{ $monster->intelligence }} </div>
+<div>Wisdom: {{ $monster->wisdom }} </div>
+<div>Charisma: {{ $monster->charisma }} </div>
+<div>Xp: {{ $monster->xp }} </div>
+<div>Challenge_rating: {{ $monster->challenge_rating }} </div>
+<div>Hit_dice: {{ $monster->hit_dice }} </div>
+<div>Languages: {{ $monster->languages }} </div>
 
 @endsection
