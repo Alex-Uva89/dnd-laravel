@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,20 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::view('/', 'home')->name('home');
+Route::get('/', function() {
+    return view('home');
+});
 
-Route::resource('monsters', 'MonsterController');
+// Route::resource('monsters', 'Admin\MonsterController');
+
+Route::middleware('auth')
+    ->namespace('Admin')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::resource('monsters', 'MonsterController');
+    });
+
+Auth::routes();
+
+// Route::view("{any?}", 'welcome')->where("any", ".*");
