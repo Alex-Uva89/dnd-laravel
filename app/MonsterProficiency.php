@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MonsterProficiensie extends Model
+class MonsterProficiency extends Model
 {
     //
 }

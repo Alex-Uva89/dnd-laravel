@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\MonsterProficiensie;
+use App\MonsterProficiency;
 use Illuminate\Http\Request;
 
-class MonsterProficiensieController extends Controller
+class MonsterProficiencyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class MonsterProficiensieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\MonsterProficiensie  $monsterProficiensie
+     * @param  \App\MonsterProficiency  $monsterProficiency
      * @return \Illuminate\Http\Response
      */
-    public function show(MonsterProficiensie $monsterProficiensie)
+    public function show(MonsterProficiency $monsterProficiency)
     {
         //
     }
@@ -52,10 +52,10 @@ class MonsterProficiensieController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MonsterProficiensie  $monsterProficiensie
+     * @param  \App\MonsterProficiency  $monsterProficiency
      * @return \Illuminate\Http\Response
      */
-    public function edit(MonsterProficiensie $monsterProficiensie)
+    public function edit(MonsterProficiency $monsterProficiency)
     {
         //
     }
@@ -64,10 +64,10 @@ class MonsterProficiensieController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MonsterProficiensie  $monsterProficiensie
+     * @param  \App\MonsterProficiency  $monsterProficiency
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MonsterProficiensie $monsterProficiensie)
+    public function update(Request $request, MonsterProficiency $monsterProficiency)
     {
         //
     }
@@ -75,10 +75,10 @@ class MonsterProficiensieController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\MonsterProficiensie  $monsterProficiensie
+     * @param  \App\MonsterProficiency  $monsterProficiency
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MonsterProficiensie $monsterProficiensie)
+    public function destroy(MonsterProficiency $monsterProficiency)
     {
         //
     }

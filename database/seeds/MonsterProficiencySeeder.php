@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class MonsterProficiensieSeeder extends Seeder
+class MonsterProficiencySeeder extends Seeder
 {
     /**
      * Run the database seeds.

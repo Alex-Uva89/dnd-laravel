@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\MonsterProficiensie;
+use App\MonsterProficiency;
 use Faker\Generator as Faker;
 
-$factory->define(MonsterProficiensie::class, function (Faker $faker) {
+$factory->define(MonsterProficiency::class, function (Faker $faker) {
     return [
         //
     ];
