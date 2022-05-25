@@ -64,7 +64,7 @@ class MonsterController extends Controller
 
         $newMonster = Monster::create($formData);
 
-       return redirect()->route('monsters.show', $newMonster->id)->with('status', 'Completed with success!');
+       return redirect()->route('admin.monsters.show', $newMonster->id)->with('status', 'Completed with success!');
 
     }
 
@@ -112,7 +112,7 @@ class MonsterController extends Controller
 
         $monster->update($formData);
 
-        return redirect()->route('monsters.show', $monster->id);
+        return redirect()->route('admin.monsters.show', $monster->id);
     }
 
     /**
@@ -124,6 +124,6 @@ class MonsterController extends Controller
     public function destroy(Monster $monster)
     {
         $monster->delete();
-        return redirect()->route('monsters.index');
+        return redirect()->route('admin.monsters.index');
     }
 }

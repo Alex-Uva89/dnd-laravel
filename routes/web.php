@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::view('/', 'home')->name('home');
+Route::get('/', function() {
+    return view('home');
+});
 
 // Route::resource('monsters', 'Admin\MonsterController');
 
@@ -33,4 +35,4 @@ Route::middleware('auth')
 
 Auth::routes();
 
-Route::view("{any?}", 'welcome')->where("any", ".*");
+// Route::view("{any?}", 'welcome')->where("any", ".*");

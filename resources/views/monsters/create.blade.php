@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('monsters.store')}}" method="post">
+    <form action="{{ route('admin.monsters.store')}}" method="post">
         @csrf
         <div class="my-2">
             <label for="index" class="form-label">Index</label>
