@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Monster;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+use App\Http\Controllers\Controller;
 
 class MonsterController extends Controller
 {
